@@ -24,8 +24,27 @@ var vaca =
     cargaOK: false
 };
 
+var pollo = 
+{
+    url: "img/pollo.png",
+    cargaOK: false
+};
+
+var cerdo = 
+{
+    url: "img/cerdo.png",
+    cargaOK: false
+};
+
 /* creamos objetos pollo, vaca, cerdo.  Cargamos y dibujamos */
 
+pollo.image = new Image();
+pollo.image.src = pollo.url;
+pollo.image.addEventListener("load", cargarPollo);
+
+cerdo.image = new Image();
+cerdo.image.src = cerdo.url;
+cerdo.image.addEventListener("load", cargarCerdo);
 
 vaca.image = new Image();
 vaca.image.src = vaca.url;
@@ -39,7 +58,17 @@ fondo.image.addEventListener("load", cargarFondo);
 
  /* funcion para dibujar el fondo, vaca, pollo y cerdo en el canvas */
 
+ function cargarPollo()
+ {
+  pollo.cargaOK = true;
+  dibujar()
+ }
 
+ function cargarCerdo()
+ {
+  cerdo.cargaOK = true;
+  dibujar()
+ }
 
 function cargarVaca()
 {
@@ -61,11 +90,28 @@ function dibujar()
         ctx.drawImage(fondo.image, 0,0);
     }
     if (vaca.cargaOK)
-    {   for(var i=0;i<10;i++)
+    {   for(var i = 0; i < 10;i++)
         {
-            ctx.drawImage(vaca.image, aleatorio(0,420), aleatorio(0,420));
+            ctx.drawImage(vaca.image, aleatorio(0,420), aleatorio(0,166));
         }
         
+    }
+
+    if(fondo.cargaOK)
+    {
+        for(var i = 0; i < 10; i++)
+            {
+             ctx.drawImage(pollo.image, aleatorio(0,420), aleatorio(166,333));
+            }
+    }
+
+    if(fondo.cargaOK)
+    {
+        for(var i = 0; i < 10; i++)
+        {
+            ctx.drawImage(cerdo.image, aleatorio(0,333), aleatorio(333,420));
+
+        }
     }
 }
 
