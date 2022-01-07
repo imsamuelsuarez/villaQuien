@@ -107,11 +107,7 @@ function dibujar()
 
 /* ciclo usando la funcion de numeros aleatorios para obtener distintos numeros*/
 
-for(var i=0; i<10; i++)
-{
-    z = aleatorio(1,500);
-    
-}
+
 
 /* funcion para obtener un numero aleatorio entre un min y un max */
 
