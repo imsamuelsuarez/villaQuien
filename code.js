@@ -107,7 +107,11 @@ function dibujar()
 
 /* ciclo usando la funcion de numeros aleatorios para obtener distintos numeros*/
 
-
+for(var i=0; i<10; i++)
+{
+    z = aleatorio(1,500);
+    
+}
 
 /* funcion para obtener un numero aleatorio entre un min y un max */
 
@@ -158,7 +162,44 @@ function dibujarPigman(evento)
 
         if(fondo.cargaOK == true)
         {
-            switch(evento.keyCode)
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*switch(evento.keyCode)
     {
         
 
@@ -181,7 +222,7 @@ function dibujarPigman(evento)
             ctx.drawImage(pigman.image, x, y);
             x = x + movimiento;
         break
-    }   
+    }   */
         }
 }
 
