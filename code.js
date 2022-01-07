@@ -2,16 +2,6 @@ var cv = document.getElementById("canvas");
 var ctx = cv.getContext('2d');
 var z;
 
-var cargaOK = false;
-
-var url = 
-{
-    vaca:"img/vaca.png",
-    pollo:"img/pollo.png",
-    cerdo:"img/cerdo.png",
-    fondo: "img/tile.png"
-};
-
 var fondo =
 {
     url: "img/tile.png",
@@ -130,5 +120,72 @@ function aleatorio(min, maxi)
     var resultado;
     resultado = Math.floor(Math.random() * (maxi - min + 1)) + min
     return resultado;
+}
+
+/* todo lo que hace funcionar el personaje movible*/
+
+
+
+var keyCode;
+var pigman = 
+{
+    url: "img/pigman.png",
+    cargaOK: false
+};
+
+var teclas = 
+{
+    UP: 38,
+    DOWN: 40,
+    LEFT: 37,
+    RIGHT: 39
+};
+
+pigman.image = new Image();
+pigman.image.src = pigman.url;
+pigman.image.addEventListener("load", cargarPigman);
+
+document.addEventListener("keydown", dibujarPigman);
+
+function cargarPigman()
+{
+    dibujarPigman()    
+}
+
+var x = 100;
+var y = 100;
+var movimiento = 25;
+
+
+function dibujarPigman(evento)
+{ 
+
+        if(fondo.cargaOK == true)
+        {
+            switch(evento.keyCode)
+    {
+        
+
+        case teclas.UP:
+            ctx.drawImage(pigman.image, x, y);
+            y = y - movimiento;
+        break
+
+        case teclas.DOWN:
+            ctx.drawImage(pigman.image, x, y);
+            y = y + movimiento;
+        break
+
+        case teclas.LEFT:
+            ctx.drawImage(pigman.image, x, y);
+            x = x - movimiento;
+        break
+
+        case teclas.RIGHT:
+            ctx.drawImage(pigman.image, x, y);
+            x = x + movimiento;
+        break
+    }   
+        }
 }
 
